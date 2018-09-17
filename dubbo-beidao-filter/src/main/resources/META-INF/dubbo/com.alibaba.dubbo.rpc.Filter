@@ -1,0 +1,2 @@
+MyDubboFilterConsumer = com.beidao.dubbo.filter.MyDubboFilterConsumer
+MyDubboFilterProvider = com.beidao.dubbo.filter.MyDubboFilterProvider
