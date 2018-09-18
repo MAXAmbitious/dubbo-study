@@ -40,6 +40,12 @@
             <artifactId>dubbo-beidao-filter</artifactId>
             <version>${project.parent.version}</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>com.beidao.dubbo</groupId>
+            <artifactId>dubbo-beidao-cluster</artifactId>
+            <version>${project.parent.version}</version>
+		</dependency>
 	</dependencies>
 
 </project>

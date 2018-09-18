@@ -30,4 +30,9 @@ public class DemoServiceImpl implements DemoService {
         return "Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
     }
 
+	public String delUser(Long id) {
+		
+		return "delete successfully!";
+	}
+
 }

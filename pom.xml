@@ -29,6 +29,7 @@
     <modules>
         <module>dubbo-demo</module>
     <module>dubbo-beidao-filter</module>
+    <module>dubbo-beidao-cluster</module>
   </modules>
 
     <dependencies>
