@@ -38,10 +38,10 @@ public class BeiDaoDubboClusterInvoker<T> extends AbstractClusterInvoker<T>{
 		String methodName = invocation.getMethodName().toUpperCase();
 		boolean write = checkMethod(methodName);
 		if(write){
-			logger.info(methodName + "is excuting cluster for writing operation");
+			logger.info(methodName + " method is excuting cluster for writing operation");
 			return new FailfastClusterInvoker<T>(directory).doInvoke(invocation, invokers, loadbalance);
 		}else{
-			logger.info(methodName + "is excuting cluster for reading operation");
+			logger.info(methodName + " method is excuting cluster for reading operation");
 			return new FailoverClusterInvoker<T>(directory).doInvoke(invocation, invokers, loadbalance);
 		}
 	}
