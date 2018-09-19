@@ -15,7 +15,7 @@ import com.alibaba.dubbo.rpc.cluster.support.FailfastClusterInvoker;
 import com.alibaba.dubbo.rpc.cluster.support.FailoverClusterInvoker;
 
 /**
- * 集群策略
+ * 集群策略(根据判定读写分配不同的策略)
  * @author 0200759
  *
  */

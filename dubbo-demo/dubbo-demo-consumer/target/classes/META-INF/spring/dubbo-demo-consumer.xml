@@ -28,10 +28,10 @@
     <!-- use multicast registry center to discover service -->
     <dubbo:registry address="multicast://224.5.6.7:1234"/>
     
-    <dubbo:consumer id="dubboConsumer" check="false" cluster="beidaoCluster" />
+    <dubbo:consumer id="dubboConsumer" check="false" cluster="beidaoCluster" timeout="3000" />
 
     <!-- generate proxy for the remote service, then demoService can be used in the same way as the
     local regular interface -->
-    <dubbo:reference id="demoService" check="false" cache="true" interface="org.apache.dubbo.demo.DemoService"/>
+    <dubbo:reference id="demoService" check="false" interface="org.apache.dubbo.demo.DemoService"/>
 
 </beans>

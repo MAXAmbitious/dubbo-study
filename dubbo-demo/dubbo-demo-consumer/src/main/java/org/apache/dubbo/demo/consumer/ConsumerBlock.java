@@ -14,33 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.dubbo.demo.provider;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+package org.apache.dubbo.demo.consumer;
 
 import org.apache.dubbo.demo.DemoService;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.alibaba.dubbo.rpc.RpcContext;
+public class ConsumerBlock {
 
-public class DemoServiceImpl implements DemoService {
-
-    public String sayHello(String name) {
-        System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
-        return "Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
+    /**
+     * To get ipv6 address to work, add
+     * System.setProperty("java.net.preferIPv6Addresses", "true");
+     * before running your application.
+     */
+    public static void main(String[] args) {
+        @SuppressWarnings("resource")
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"META-INF/spring/dubbo-demo-consumer.xml"});
+        context.start();
+        DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
+        demoService.block();
     }
-
-	public String delUser(Long id) {
-		return "delete successfully!";
-	}
-
-	public void block() {
-		try {
-			Thread.sleep(4000);
-			System.out.println("block over!");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
 }
